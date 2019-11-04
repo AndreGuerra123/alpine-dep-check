@@ -6,6 +6,6 @@ RUN wget -qO- -O owasp.zip http://dl.bintray.com/jeremy-long/owasp/dependency-ch
     unzip owasp.zip && \
     rm owasp.zip
 
-RUN /dependency-check/bin/dependency-check.sh --updateonly
+RUN ln -s /dependency-check/bin/dependency-check.sh /usr/bin/dependency-check
 
-ENTRYPOINT ["/dependency-check/bin/dependency-check.sh"]
+RUN dependency-check --updateonly
